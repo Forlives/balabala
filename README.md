@@ -65,7 +65,7 @@ cat  config.yml（这个命令可以查看token）
 ### 后台运行时关闭
 
 ​```bash
-killall bibilailai
+killall balabala
 
 ### 后台运行时查看
 ​```bash
