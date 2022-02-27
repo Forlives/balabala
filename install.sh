@@ -24,11 +24,11 @@ install() {
     $cmd update -y
     $cmd install curl wget screen -y
     mkdir /root/SSLminerProxy
-    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/balabala_web -O /root/SSLminerProxy/SSLminerProxy
+    wget https://raw.githubusercontent.com/Forlives/balabala/main/balabala_web -O /root/SSLminerProxy/SSLminerProxy
 
     chmod 777 /root/SSLminerProxy/SSLminerProxy
 
-    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/balabala_web -O /root/SSLminerProxy/run.sh
+    wget https://raw.githubusercontent.com/Forlives/balabala/main/run.sh -O /root/SSLminerProxy/run.sh
 	
     chmod 777 /root/SSLminerProxy/run.sh
 	
