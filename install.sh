@@ -24,11 +24,11 @@ install() {
     $cmd update -y
     $cmd install curl wget screen -y
     mkdir /root/SSLminerProxy
-    wget https://raw.githubusercontent.com/Forlives/balabala/main/balabala_web -O /root/SSLminerProxy/SSLminerProxy
+    wget https://raw.githubusercontent.com/MIRA-GE/SSLminerProxy/main/SSLminerProxy_linux -O /root/SSLminerProxy/SSLminerProxy
 
     chmod 777 /root/SSLminerProxy/SSLminerProxy
 
-    wget https://raw.githubusercontent.com/Forlives/balabala/main/run.sh -O /root/SSLminerProxy/run.sh
+    wget https://raw.githubusercontent.com/MIRA-GE/SSLminerProxy/main/run.sh -O /root/SSLminerProxy/run.sh
 	
     chmod 777 /root/SSLminerProxy/run.sh
 	
@@ -118,7 +118,7 @@ check_limit(){
 }
 
 echo "======================================================="
-echo "加密中转balabala——SSLminerProxy一键管理工具"
+echo "加密中转SSLminerProxy一键管理工具"
 echo "  1、安装(默认安装到/root/SSLminerProxy)"
 echo "  2、卸载"
 echo "  3、启动"
