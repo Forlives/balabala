@@ -18,83 +18,83 @@ install() {
         echo -e "您已安装了该软件,如果确定没有安装,请输入rm -rf /root/miner_Proxy" && exit 1
     fi
     if screen -list | grep -q "minerProxy"; then
-        echo -e "检测到您已启动了minerProxy,请输入killall balabala关闭后再安装" && exit 1
+        echo -e "检测到您已启动了minerProxy,请输入killall SSLminerProxy关闭后再安装" && exit 1
     fi
 
     $cmd update -y
     $cmd install curl wget screen -y
-    mkdir /root/balabala
-    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/balabala_web -O /root/balabala/balabala
+    mkdir /root/SSLminerProxy
+    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/balabala_web -O /root/SSLminerProxy/SSLminerProxy
 
-    chmod 777 /root/balabala/balabala
+    chmod 777 /root/SSLminerProxy/SSLminerProxy
 
-    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/run.sh -O /root/balabala/run.sh
+    wget https://raw.githubusercontent.com/Forlives/balabala/blob/main/balabala_web -O /root/SSLminerProxy/run.sh
 	
-    chmod 777 /root/balabala/run.sh
+    chmod 777 /root/SSLminerProxy/run.sh
 	
     echo "如果没有报错则安装成功"
     echo "正在启动..."
-    screen -dmS balabala
+    screen -dmS SSLminerProxy
     sleep 0.2s
-    screen -r balabala -p 0 -X stuff "cd /root/balabala"
-    screen -r balabala -p 0 -X stuff $'\n'
-    screen -r balabala -p 0 -X stuff "./run.sh"
-    screen -r balabala -p 0 -X stuff $'\n'
+    screen -r SSLminerProxy -p 0 -X stuff "cd /root/SSLminerProxy"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
+    screen -r SSLminerProxy -p 0 -X stuff "./run.sh"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
     sleep 1s
-    cat /root/balabala/config.yml
+    cat /root/SSLminerProxy/config.yml
     echo "<<<如果成功了,这是您的端口号 请打开 http://服务器ip:端口 访问web服务进行配置:默认端口号为18888,请记录您的token,请尽快登陆并修改账号密码"
-    echo "已启动web后台 您可运行 screen -r balabala 查看程序输出"
+    echo "已启动web后台 您可运行 screen -r SSLminerProxy 查看程序输出"
 
 }
 
 uninstall() {
-    read -p "是否确认删除balabala[yes/no]：" flag
+    read -p "是否确认删除SSLminerProxy[yes/no]：" flag
     if [ -z $flag ]; then
         echo "输入错误" && exit 1
     else
         if [ "$flag" = "yes" -o "$flag" = "ye" -o "$flag" = "y" ]; then
-            screen -X -S balabala quit
-            rm -rf /root/balabala
-            echo "卸载balabala成功"
+            screen -X -S SSLminerProxy quit
+            rm -rf /root/SSLminerProxy
+            echo "卸载SSLminerProxy成功"
         fi
     fi
 }
 
 
 start() {
-    if screen -list | grep -q "balabala"; then
-        echo -e "balabala已启动,请勿重复启动" && exit 1
+    if screen -list | grep -q "SSLminerProxy"; then
+        echo -e "SSLminerProxy已启动,请勿重复启动" && exit 1
     fi
-    screen -dmS balabala
+    screen -dmS SSLminerProxy
     sleep 0.2s
-    screen -r balabala -p 0 -X stuff "cd /root/balabala"
-    screen -r balabala -p 0 -X stuff $'\n'
-    screen -r balabala -p 0 -X stuff "./run.sh"
-    screen -r balabala -p 0 -X stuff $'\n'
-    echo "balabala已启动"
-    echo "您可以使用指令screen -r balabala查看程序输出"
+    screen -r SSLminerProxy -p 0 -X stuff "cd /root/SSLminerProxy"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
+    screen -r SSLminerProxy -p 0 -X stuff "./run.sh"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
+    echo "SSLminerProxy已启动"
+    echo "您可以使用指令screen -r SSLminerProxy查看程序输出"
 }
 
 restart() {
-    if screen -list | grep -q "balabala"; then
-    screen -X -S balabala quit
+    if screen -list | grep -q "SSLminerProxy"; then
+    screen -X -S SSLminerProxy quit
     fi
-    screen -dmS balabala
+    screen -dmS SSLminerProxy
     sleep 0.2s
-    screen -r balabala -p 0 -X stuff "cd /root/balabala"
-    screen -r balabala -p 0 -X stuff $'\n'
-    screen -r balabala -p 0 -X stuff "./run.sh"
-    screen -r balabala -p 0 -X stuff $'\n'
+    screen -r SSLminerProxy -p 0 -X stuff "cd /root/SSLminerProxy"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
+    screen -r SSLminerProxy -p 0 -X stuff "./run.sh"
+    screen -r SSLminerProxy -p 0 -X stuff $'\n'
 	
-    echo "balabala 重新启动成功"
-    echo "您可运行 screen -r balabala 查看程序输出"
+    echo "SSLminerProxy 重新启动成功"
+    echo "您可运行 screen -r SSLminerProxy 查看程序输出"
 }
 
 stop() {
-    if screen -list | grep -q "balabala"; then
-        screen -X -S balabala quit
+    if screen -list | grep -q "SSLminerProxy"; then
+        screen -X -S SSLminerProxy quit
     fi
-    echo "balabala 已停止"
+    echo "SSLminerProxy 已停止"
 }
 
 change_limit(){
@@ -118,8 +118,8 @@ check_limit(){
 }
 
 echo "======================================================="
-echo "加密中转balabala一键管理工具"
-echo "  1、安装(默认安装到/root/balabala)"
+echo "加密中转balabala——SSLminerProxy一键管理工具"
+echo "  1、安装(默认安装到/root/SSLminerProxy)"
 echo "  2、卸载"
 echo "  3、启动"
 echo "  4、重启"
